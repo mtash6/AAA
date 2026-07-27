@@ -1,4 +1,5 @@
 import os
+import uvicorn
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -142,3 +143,6 @@ def get_ai_recommendations(db: Session = Depends(get_db)):
 @app.get("/api/v1/executive/health", response_model=ExecutiveHealthResponse, tags=["Executive"])
 def get_executive_health(db: Session = Depends(get_db)):
     return ExecutiveAnalyticsEngine.compute_business_health_score(db)
+    if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
