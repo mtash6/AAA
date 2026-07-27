@@ -1,0 +1,24 @@
+# Python cache & virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Database files
+*.db
+*.sqlite3
+
+# Local uploads & generated chart outputs
+outputs/*
+uploads/*
+!outputs/.gitkeep
+!uploads/.gitkeep
+
+# Environment variables & keys
+.env
+
+# IDE settings
+.vscode/
+.idea/
